@@ -1,3 +1,4 @@
+import fs from 'fs';
 import { visualizer } from "rollup-plugin-visualizer";
 import { defineConfig } from 'astro/config';
 import tailwindcss from '@tailwindcss/vite';

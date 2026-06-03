@@ -1,11 +1,12 @@
+---
 import Layout from '@/layouts/PageLayout.astro';
-import { render } from "astro:content";
+import { getEntry, render } from "astro:content";
 
 import { getI18n } from "@/i18n/index"
 import { getRelativeLocaleUrl } from 'astro:i18n';
 import { siteConfig } from '@/site.config';
 
-const { currentLocale } = Astro
+const currentLocale = Astro.currentLocale ?? 'zh';
 const i18n = await getI18n(currentLocale, 'design')
 
 const mates = {
@@ -18,7 +19,8 @@ const mates = {
 }
 const about = await getEntry("pages", ["about", currentLocale].join('_'));
 
-const { Content } = await render(about);
+const { Content } = await render(about as any);
+---
 
 <Layout {...mates}>
   <div class="prose prose-tao dark:prose-invert mx-auto w-[90%] md:w-[80%] xl:w-[70%] pt-20">

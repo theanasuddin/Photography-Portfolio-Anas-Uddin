@@ -1,11 +1,11 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
-import Screen from "@hdud/common/pages/screen.astro";
+import ScreenPage from "@hdud/common/pages/screen.astro";
 import { getI18n } from "@/i18n/index";
 import { getRelativeLocaleUrl } from "astro:i18n";
 import { siteConfig } from "@/site.config";
 
-const { currentLocale } = Astro;
+const currentLocale = Astro.currentLocale ?? 'zh';
 const i18n = await getI18n(currentLocale, "blog");
 const mates = {
   title: "screen",
@@ -18,5 +18,5 @@ const mates = {
 ---
 
 <BaseLayout {...mates}>
-  <Screen />
+  <ScreenPage />
 </BaseLayout>

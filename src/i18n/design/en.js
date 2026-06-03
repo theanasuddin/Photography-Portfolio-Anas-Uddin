@@ -1,13 +1,13 @@
 export default {
   mate: {
     description: "Designers, photographers, and creative artists — showcase your best work here.",
-    title: "Designer",
+    title: "Anas Uddin",
   },
   btns: {
     backToTop: 'Back to Top'
   },
   page_works: {
-    title: '{{name}} - Portfolio',
+    title: '{{name}} - Photography Portfolio',
   },
   footer: {
     cr: 'All rights reserved.',

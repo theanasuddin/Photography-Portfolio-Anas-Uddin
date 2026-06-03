@@ -1,7 +1,7 @@
 export default {
   mate: {
     description: "设计师、摄影师和创意艺术家——在这里展示您最好的作品。",
-    title: "Designer",
+    title: "Anas Uddin",
   },
   btns: {
     backToTop: '返回顶部'
