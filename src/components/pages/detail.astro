@@ -10,7 +10,7 @@ import { siteConfig } from "@/site.config";
 
 const { work } = Astro.props as { work: any };
 
-const currentLocale = Astro.currentLocale ?? 'zh';
+const currentLocale = Astro.currentLocale ?? "zh";
 const i18n = await getI18n(currentLocale, "design");
 
 const mates = {
@@ -22,7 +22,7 @@ const mates = {
   ogImage: getRelativeLocaleUrl(currentLocale, "/og-image/site-image.png"),
 };
 
-const works = (await getWorks() as unknown) as any[];
+const works = (await getWorks()) as unknown as any[];
 
 const { Content } = await render(work);
 

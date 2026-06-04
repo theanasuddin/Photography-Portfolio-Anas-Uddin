@@ -1,30 +1,30 @@
-import fs from 'fs';
+import fs from "fs";
 import { visualizer } from "rollup-plugin-visualizer";
-import { defineConfig } from 'astro/config';
-import tailwindcss from '@tailwindcss/vite';
-import svgr from 'vite-plugin-svgr';
-import sitemap from '@astrojs/sitemap';
-import react from '@astrojs/react';
-import icon from 'astro-icon';
-import { remarkReadingTime } from './src/plugins/remark-reading-time.mjs';
-import rehypeExternalLinks from 'rehype-external-links';
+import { defineConfig } from "astro/config";
+import tailwindcss from "@tailwindcss/vite";
+import svgr from "vite-plugin-svgr";
+import sitemap from "@astrojs/sitemap";
+import react from "@astrojs/react";
+import icon from "astro-icon";
+import { remarkReadingTime } from "./src/plugins/remark-reading-time.mjs";
+import rehypeExternalLinks from "rehype-external-links";
 import { siteConfig } from "./src/site.config";
 import webmanifest from "astro-webmanifest";
 
-import vtbot from 'astro-vtbot';
+import vtbot from "astro-vtbot";
 
 import alpinejs from "@astrojs/alpinejs";
 
 export default defineConfig({
   site: siteConfig.site,
   devToolbar: {
-    enabled: false
+    enabled: false,
   },
   i18n: {
     locales: siteConfig.langs,
     defaultLocale: "zh",
     routing: {
-      prefixDefaultLocale: false
+      prefixDefaultLocale: false,
     },
   },
   vite: {
@@ -34,8 +34,8 @@ export default defineConfig({
     plugins: [
       svgr({
         svgrOptions: {
-          icon: true
-        }
+          icon: true,
+        },
       }),
       tailwindcss(),
       visualizer({
@@ -48,20 +48,16 @@ export default defineConfig({
       rollupOptions: {
         output: {
           manualChunks: {
-            vendor: ['react', 'react-dom'],
+            vendor: ["react", "react-dom"],
           },
         },
       },
     },
     server: {
       watch: {
-        ignored: [
-          '**/.git/**',
-          '**/website/**',
-          '**/dist/**',
-        ]
-      }
-    }
+        ignored: ["**/.git/**", "**/website/**", "**/dist/**"],
+      },
+    },
   },
   integrations: [
     sitemap(),
@@ -83,25 +79,26 @@ export default defineConfig({
         {
           src: "public/favicon/favicon-192x192.png",
           sizes: "192x192",
-          type: "image/png"
+          type: "image/png",
         },
         {
           src: "public/favicon/favicon-512x512.png",
           sizes: "512x512",
-          type: "image/png"
-        }
+          type: "image/png",
+        },
       ],
-      start_url: '/',
-      theme_color: '#fdfaf6',
-      background_color: '#fdfaf6',
-      display: 'standalone',
-    }), alpinejs()
+      start_url: "/",
+      theme_color: "#fdfaf6",
+      background_color: "#fdfaf6",
+      display: "standalone",
+    }),
+    alpinejs(),
   ],
   redirects: {
     "/blog": "/blog/home",
     "/blog/index": "/blog/home",
     "/blog/tags": "/blog/tags/Python",
-    "/blog/posts": "/blog/posts/1"
+    "/blog/posts": "/blog/posts/1",
   },
   markdown: {
     remarkPlugins: [remarkReadingTime],
@@ -109,10 +106,10 @@ export default defineConfig({
       [
         rehypeExternalLinks,
         {
-          content: { type: 'text', value: ' 🔗' }
-        }
+          content: { type: "text", value: " 🔗" },
+        },
       ],
-    ]
+    ],
   },
 });
 
