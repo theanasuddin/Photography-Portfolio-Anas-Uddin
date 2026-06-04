@@ -22,14 +22,14 @@ export default defineConfig({
   },
   i18n: {
     locales: siteConfig.langs,
-    defaultLocale: "zh",
+    defaultLocale: "en",
     routing: {
       prefixDefaultLocale: false,
     },
   },
   vite: {
     optimizeDeps: {
-      exclude: ["@resvg/resvg-js"],
+      exclude: ["@resvg/resvg-js", "@tailwindcss/oxide", "lightningcss"],
     },
     plugins: [
       svgr({
@@ -56,6 +56,9 @@ export default defineConfig({
     server: {
       watch: {
         ignored: ["**/.git/**", "**/website/**", "**/dist/**"],
+      },
+      hmr: {
+        timeout: 120000,
       },
     },
   },

@@ -7,7 +7,7 @@ export const siteConfig = {
   lang: "en",
   site: "https://anas-uddin.vercel.app/",
   themes: { dark: "business", light: "silk" },
-  langs: ["zh", "zh-hant", "en", "ja"],
+  langs: ["en", "bn"],
 };
 
 export default siteConfig;

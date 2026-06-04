@@ -15,8 +15,8 @@ async function i18nInit() {
     };
   }
   i18next.init({
-    lng: "zh",
-    fallbackLng: "zh",
+    lng: "en",
+    fallbackLng: "en",
     resources,
     interpolation: {
       escapeValue: false,
@@ -26,7 +26,7 @@ async function i18nInit() {
 
 export const getI18n = async (lang, name) => {
   await i18nInit();
-  i18next.changeLanguage(lang || "zh");
+  i18next.changeLanguage(lang || "en");
   return (key = "", options = {}) => {
     if (typeof name === "string")
       key = [name, key].filter((it) => it).join(".");

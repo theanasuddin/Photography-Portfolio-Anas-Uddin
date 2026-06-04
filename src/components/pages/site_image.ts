@@ -7,10 +7,10 @@ import { html } from "satori-html";
 import { getI18n } from "@/i18n/index";
 
 const getLang = (pathname) => {
-  for (const lang of ["en", "zh-hant", "ja", "ko"]) {
+  for (const lang of ["en", "bn"]) {
     if (pathname.indexOf(`/${lang}/`) === 0) return lang;
   }
-  return "zh";
+  return "en";
 };
 
 const ogOptions: SatoriOptions = {

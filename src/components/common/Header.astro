@@ -9,7 +9,7 @@ const { currentLocale } = Astro;
 const i18n = await getI18n(currentLocale, "design");
 
 function getTargetUrl() {
-  const lang = currentLocale === "ja" ? "en" : currentLocale;
+  const lang = currentLocale || "en";
   return siteConfig.site + getRelativeLocaleUrl(lang, "/");
 }
 ---
@@ -19,6 +19,7 @@ function getTargetUrl() {
   class="max-w-none"
   themes={siteConfig.themes}
   langs={siteConfig.langs}
+  langLabel={i18n("langLabel")}
 >
   <div class="flex items-center gap-2">
     <a href={getTargetUrl()} class="inline-block max-md:hidden xl:hidden">
@@ -28,7 +29,7 @@ function getTargetUrl() {
       />
     </a>
     <span class="max-md:hidden text-md max-md:text-xl xl:text-xl"
-      >Anas Uddin</span
+      >Anas Uddin Photography</span
     >
   </div>
   <div class="flex items-center gap-2" slot="center">
@@ -38,6 +39,6 @@ function getTargetUrl() {
         class="size-8 md:size-10 xl:size-12 h-auto"
       />
     </a>
-    <span class="md:hidden text-md xl:text-xl">Anas Uddin</span>
+    <span class="md:hidden text-md xl:text-xl">Anas Uddin Photography</span>
   </div>
 </HdudHeader>

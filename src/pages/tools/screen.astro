@@ -5,7 +5,7 @@ import { getI18n } from "@/i18n/index";
 import { getRelativeLocaleUrl } from "astro:i18n";
 import { siteConfig } from "@/site.config";
 
-const currentLocale = Astro.currentLocale ?? "zh";
+const currentLocale = Astro.currentLocale ?? "en";
 const i18n = await getI18n(currentLocale, "blog");
 const mates = {
   title: "screen",

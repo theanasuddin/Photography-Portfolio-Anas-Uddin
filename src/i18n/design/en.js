@@ -28,5 +28,7 @@ export default {
     prev: 'Previous',
     next: 'Next',
   }
+  ,
+  langLabel: 'Lang',
 }
 
