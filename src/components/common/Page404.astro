@@ -1,0 +1,29 @@
+---
+import Svg404 from "@hdud/common/assets/images/404.svg";
+
+const { shows = {}, homeUrl, class: className } = Astro.props;
+---
+
+<main class:list={["container mx-auto max-w-6xl pt-10", className]}>
+    <div class="flex flex-col gap-8 w-full h-full">
+        <div class="md:text-6xl text-5xl text-center">
+            {shows["oops"]}
+        </div>
+        <div class="text-center md:text-2xl text-xl">
+            {shows["tip"]}
+        </div>
+        <div
+            class="flex mx-auto w-full justify-center aspect-video object-cover max-w-[800px] my-4 md:my-8 xl:my-16"
+        >
+            <Svg404 class="h-full w-auto" />
+        </div>
+        <div class="flex justify-center">
+            <a
+                href={homeUrl}
+                class="hover:underline text-xl font-blod text-left w-max"
+            >
+                {shows["home"]}
+            </a>
+        </div>
+    </div>
+</main>
