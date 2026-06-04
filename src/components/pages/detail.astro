@@ -1,7 +1,7 @@
 ---
 import Layout from "@/layouts/PageLayout.astro";
 import { render } from "astro:content";
-import FloatBtns from "@hdud/common/components/FloatBtns.astro";
+import FloatBtns from "@/components/common/FloatBtns.astro";
 import MemberGrid from "@/components/common/MemberGrid.astro";
 import getWorks from "@/lib/getWorks.ts";
 import { getI18n } from "@/i18n/index";
@@ -14,7 +14,7 @@ const currentLocale = Astro.currentLocale ?? "en";
 const i18n = await getI18n(currentLocale, "design");
 
 const mates = {
-  title: i18n("page_works.title", { name: work.id }),
+  title: i18n("page_works.title"),
   description: i18n("mate.description"),
   author: siteConfig.author,
   email: siteConfig.email,

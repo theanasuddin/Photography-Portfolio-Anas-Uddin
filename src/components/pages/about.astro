@@ -10,7 +10,7 @@ const currentLocale = Astro.currentLocale ?? "en";
 const i18n = await getI18n(currentLocale, "design");
 
 const mates = {
-  title: i18n("menus.about"),
+  title: i18n("page_works.title"),
   description: i18n("mate.description"),
   author: siteConfig.author,
   email: siteConfig.email,

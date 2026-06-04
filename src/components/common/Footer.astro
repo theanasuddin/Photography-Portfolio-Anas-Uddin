@@ -1,0 +1,37 @@
+---
+import clsx from "clsx";
+const {
+    class: className,
+    links,
+    shows = {},
+    siteUrl = "https://anas-uddin.vercel.app/",
+    siteName = "Anas Uddin",
+} = Astro.props;
+const year = new Date().getFullYear();
+---
+
+<footer class={clsx("bg-unset text-center py-12", className)}>
+    <div class="max-w-4xl mx-auto px-4">
+        <p class="mb-2">
+            <span
+                >&copy; {year}
+                <a class="hover:underline" href={siteUrl}>{siteName}.</a>
+                {shows["cr"]}
+            </span>
+        </p>
+        {
+            Array.isArray(links) && links.length && (
+                <div class="space-x-4 text-sm">
+                    {links.map((link) => (
+                        <a
+                            href={link.href}
+                            class="hover:text-accent hover:underline transition-colors"
+                        >
+                            {link.label}
+                        </a>
+                    ))}
+                </div>
+            )
+        }
+    </div>
+</footer>

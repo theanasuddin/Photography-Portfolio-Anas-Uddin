@@ -9,7 +9,7 @@ const currentLocale = Astro.currentLocale ?? "en";
 const i18n = await getI18n(currentLocale, "design");
 const homeUrl = getRelativeLocaleUrl(currentLocale, "/");
 const mates = {
-  title: "404",
+  title: i18n("page_works.title"),
   description: i18n("mate.description"),
   author: siteConfig.author,
   email: siteConfig.email,

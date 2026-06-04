@@ -1,5 +1,5 @@
 ---
-import FloatBtns from "@hdud/common/components/FloatBtns.astro";
+import FloatBtns from "@/components/common/FloatBtns.astro";
 import Layout from "@/layouts/PageLayout.astro";
 import WorksGrid from "@/components/works/WorksGrid.astro";
 import getWorks from "@/lib/getWorks.ts";
@@ -11,7 +11,7 @@ const currentLocale = Astro.currentLocale ?? "en";
 const i18n = await getI18n(currentLocale, "design");
 
 const mates = {
-  title: i18n("menus.works"),
+  title: i18n("page_works.title"),
   description: i18n("mate.description"),
   author: siteConfig.author,
   email: siteConfig.email,

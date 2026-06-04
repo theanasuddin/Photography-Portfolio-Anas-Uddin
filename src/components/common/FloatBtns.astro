@@ -1,0 +1,92 @@
+---
+import ThemeToggle from './ThemeToggle.astro';
+
+const { btns = [] } = Astro.props;
+const wrapClass = (hasHover = true) => ([
+  "relative flex h-[50px] w-[50px] cursor-pointer items-center",
+  "justify-center overflow-hidden rounded-[15px] border-[4px] border-double",
+  "group border-[#e9e9e9] bg-[#fd2c2c] font-light transition-all duration-500",
+  hasHover && "hover:w-[100px] hover:bg-[#fd2c2c]",
+]);
+const labelClass = (hasHover = true) => ([
+  "hidden text-[#fafafa] transition-all duration-300 text-nowrap",
+  hasHover && "group-hover:block",
+]);
+const btnClass = (hasHover = true) => ([
+  "text-[#e9e9e9]",
+  hasHover && "group-hover:hidden",
+]);
+const btnMap = {
+  top: {
+    hasHover: true,
+    icon: 'icon-[bxs--to-top]',
+  },
+  link: {
+    hasHover: true,
+    href: 'javascript:null',
+    icon: 'icon-[radix-icons--view-none]',
+    label: '请传入标签',
+  },
+  theme: {
+    hasHover: false,
+  },
+}
+function getConfig(it) {
+  if (typeof it === 'object') {
+    return {...(btnMap[it.type] || {}), ...it };
+  }
+  if (typeof it === 'string') {
+    return { ...(btnMap[it] || {}), type: it }
+  }
+}
+---
+
+<div 
+  x-data="{ show: false }"
+  x-init="window.addEventListener('scroll', () => { show = window.scrollY > 200 })"
+  class="fixed flex flex-col bottom-4 right-2 md:bottom-6 md:right-4 xl:bottom-8 xl:right-6 z-50 items-end"
+>
+  {
+    btns.map(it => {
+      const btn = getConfig(it);
+      if (btn.type === 'top') {
+        return <button 
+          x-show="show" 
+          @click="window.scrollTo({ top: 0, behavior: 'smooth' })"
+          class:list={[ wrapClass(!!btn.label), btn.wrapClass ]}]
+          x-transition
+        >
+          {
+            btn.label && <span class:list={[ labelClass(), btn.labelClass ]}>
+              {btn.label}
+            </span>
+          }
+          <span class:list={[ btnClass(!!btn.label), btn.btnClass, btn.icon ]} />
+        </button>
+      }
+      if (btn.type === 'link') {
+        return <a href={btn.href} class:list={[ wrapClass(), btn.wrapClass ]}] >
+          <span class:list={[ labelClass(), btn.labelClass ]}>
+            {btn.label}
+          </span>
+          <span class:list={[ btnClass(), btn.btnClass, btn.icon ]} />
+        </a>
+      }
+      if (['theme'].includes(btn.type)) {
+        return <div class:list={[ wrapClass(btn.hasHover), btn.wrapClass ]}] >
+          <span class:list={[ labelClass(btn.hasHover), btn.labelClass ]}>
+            {btn.label}
+          </span>
+          {
+            btn.type === 'theme' && <ThemeToggle
+              {...btn.props}
+              class:list={[ btnClass(btn.hasHover), btn.btnClass, btn.icon ]}
+            />
+          }
+        </div>
+      }
+      return null;
+    })
+  }
+  <slot />
+</div>

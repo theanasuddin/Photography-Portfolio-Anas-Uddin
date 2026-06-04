@@ -1,6 +1,6 @@
 export default {
   mate: {
-    description: "Designers, photographers, and creative artists — showcase your best work here.",
+    description: "A personal photography portfolio website showcasing my work as a hobbyist photographer.",
     title: "Anas Uddin",
   },
   brand: "Anas Uddin Photography",
@@ -8,11 +8,10 @@ export default {
     backToTop: 'Back to Top'
   },
   page_works: {
-    title: '{{name}} - Photography Portfolio',
+    title: 'Anas Uddin - Photography Portfolio',
   },
   footer: {
     cr: 'All rights reserved.',
-    icp: 'ICP No. 2022020686 (Shanghai)',
   },
   menus: {
     all: 'All',
@@ -22,8 +21,8 @@ export default {
   },
   page_404: {
     oops: 'Oops!',
-    tip: 'The page you are trying to visit does not exist. Not sure about the correct address?',
-    home: 'Go to Home',
+    tip: 'The page you\'re looking for doesn\'t exist. Not sure if the address is correct?',
+    home: 'Back to Home',
   },
   page_detail: {
     prev: 'Previous',
