@@ -1,8 +1,9 @@
 export default {
   mate: {
     description: "ডিজাইনার, ফটোগ্রাফার এবং ক্রিয়েটিভ আর্টিস্ট — এখানে আপনার সেরা কাজ দেখান।",
-    title: "Anas Uddin",
+    title: "আনাস উদ্দীন",
   },
+  brand: "আনাস উদ্দীন ফটোগ্রাফি",
   btns: {
     backToTop: 'শীর্ষে ফিরে'
   },

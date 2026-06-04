@@ -3,6 +3,7 @@ export default {
     description: "Designers, photographers, and creative artists — showcase your best work here.",
     title: "Anas Uddin",
   },
+  brand: "Anas Uddin Photography",
   btns: {
     backToTop: 'Back to Top'
   },

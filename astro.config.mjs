@@ -29,7 +29,7 @@ export default defineConfig({
   },
   vite: {
     optimizeDeps: {
-      exclude: ["@resvg/resvg-js", "@tailwindcss/oxide", "lightningcss"],
+      exclude: ["@resvg/resvg-js"],
     },
     plugins: [
       svgr({
@@ -56,9 +56,6 @@ export default defineConfig({
     server: {
       watch: {
         ignored: ["**/.git/**", "**/website/**", "**/dist/**"],
-      },
-      hmr: {
-        timeout: 120000,
       },
     },
   },
