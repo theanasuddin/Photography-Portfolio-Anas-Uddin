@@ -26,7 +26,9 @@ export const getMenus = (textMap, locale) => {
     },
     {
       label: textMap["contact"],
-      href: `mailto:${siteConfig.email}`,
+      href: "https://contact-anas.netlify.app/",
+      target: "_blank",
+      rel: "noopener noreferrer",
       isActive: (path) => false,
       hasAnimate,
     },

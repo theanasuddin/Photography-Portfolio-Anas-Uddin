@@ -25,6 +25,8 @@ const year = new Date().getFullYear();
                     {links.map((link) => (
                         <a
                             href={link.href}
+                            target={link.target}
+                            rel={link.rel}
                             class="hover:text-accent hover:underline transition-colors"
                         >
                             {link.label}
