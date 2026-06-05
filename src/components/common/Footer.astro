@@ -6,6 +6,7 @@ const {
     shows = {},
     siteUrl = "https://anas-uddin.vercel.app/",
     siteName = "Anas Uddin",
+    sitePunct = '.',
 } = Astro.props;
 const year = new Date().getFullYear();
 ---
@@ -15,7 +16,7 @@ const year = new Date().getFullYear();
         <p class="mb-2">
             <span
                 >&copy; {year}
-                <a class="hover:underline" href={siteUrl}>{siteName}.</a>
+                <a class="hover:underline" href={siteUrl} target="_blank" rel="noopener noreferrer">{siteName}{sitePunct}</a>
                 {shows["cr"]}
             </span>
         </p>

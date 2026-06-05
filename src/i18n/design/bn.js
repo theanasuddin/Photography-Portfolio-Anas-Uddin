@@ -5,7 +5,7 @@ export default {
   },
   brand: "আনাস উদ্দীন ফটোগ্রাফি",
   btns: {
-    backToTop: 'উপরে ফিরে যান'
+    backToTop: 'উপরে যান'
   },
   page_works: {
     title: 'আনাস উদ্দীন - ফটোগ্রাফি পোর্টফোলিও',

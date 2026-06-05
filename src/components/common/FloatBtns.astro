@@ -5,15 +5,15 @@ const { btns = [] } = Astro.props;
 const wrapClass = (hasHover = true) => ([
   "relative flex h-[50px] w-[50px] cursor-pointer items-center",
   "justify-center overflow-hidden rounded-[15px] border-[4px] border-double",
-  "group border-[#e9e9e9] bg-[#fd2c2c] font-light transition-all duration-500",
-  hasHover && "hover:w-[100px] hover:bg-[#fd2c2c]",
+  "group border-[#fff] bg-[#ff2d2d] font-light transition-all duration-500",
+  hasHover && "hover:w-[100px] hover:bg-[#ff2d2d]",
 ]);
 const labelClass = (hasHover = true) => ([
   "hidden text-[#fafafa] transition-all duration-300 text-nowrap",
   hasHover && "group-hover:block",
 ]);
 const btnClass = (hasHover = true) => ([
-  "text-[#e9e9e9]",
+  "text-[#fff]",
   hasHover && "group-hover:hidden",
 ]);
 const btnMap = {

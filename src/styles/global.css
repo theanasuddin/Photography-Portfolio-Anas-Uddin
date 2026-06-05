@@ -16,9 +16,62 @@
 @theme inline {
   --font-sans: system-ui, -apple-system, "BlinkMacSystemFont", "Segoe UI", Roboto, "Oxygen", "Ubuntu", "Cantarell", "Open Sans", "Helvetica Neue", sans-serif;
   --font-handjet: var(--font-sans);
+  --font-mono: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+:root[data-theme="silk"],
+[data-theme="silk"] {
+  --color-base-100: oklch(0.97 0 0);
+  --color-base-200: oklch(0.94 0 0);
+  --color-base-300: oklch(0.92 0 0);
+  --color-base-content: oklch(0 0 0);
+
 }
 
 :root[data-theme="business"],
 [data-theme="business"] {
   --color-base-100: oklch(0.17 0 0);
+  --color-base-200: oklch(0.14 0 0);
+  --color-base-300: oklch(0.12 0 0);
+  --color-base-content: oklch(1 0 0);
+}
+
+:root[data-theme="silk"] li:has(> a[href="javascript:null"]),
+[data-theme="silk"] li:has(> a[href="javascript:null"]) {
+  color: #000 !important;
+}
+
+:root[data-theme="silk"] li:not(:has(> a[href="javascript:null"])),
+[data-theme="silk"] li:not(:has(> a[href="javascript:null"])) {
+  color: #737373 !important;
+}
+
+:root[data-theme="business"] li:has(> a[href="javascript:null"]),
+[data-theme="business"] li:has(> a[href="javascript:null"]) {
+  color: #fff !important;
+}
+
+:root[data-theme="business"] li:not(:has(> a[href="javascript:null"])),
+[data-theme="business"] li:not(:has(> a[href="javascript:null"])) {
+  color: #a0a0a0 !important;
+}
+
+:root[data-theme="business"] .navbar,
+[data-theme="business"] .navbar {
+  box-shadow: 0 1px 0 0 color-mix(in oklab, oklch(1 0 0) 10%, transparent) !important;
+}
+
+:root[data-theme="silk"] footer a:hover,
+[data-theme="silk"] footer a:hover {
+  color: #ff2d2d !important;
+}
+
+.navbar .menu a,
+.dropdown-content .menu a {
+  font-family: var(--font-mono) !important;
+}
+
+:root[data-theme="business"] footer a:hover,
+[data-theme="business"] footer a:hover {
+  color: #ff2d2d !important;
 }

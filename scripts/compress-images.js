@@ -25,7 +25,7 @@ function ensureDirExists(filePath) {
 }
 
 function findAndMoveMd(dir) {
-  const name = dir.split("/").pop();
+  const name = path.basename(dir);
   fs.readdirSync(dir)
     .filter((file) => /\.md$/i.test(file))
     .forEach((file) => {
@@ -76,7 +76,7 @@ function getAllImageFiles(dir) {
 }
 
 function saveImageInfo(sizeInfo, imgPath, metadata) {
-  const filepath = imgPath.replace(publicPath, "");
+  const filepath = imgPath.replace(publicPath, "").replace(/\\/g, "/");
   const dir = path.dirname(filepath);
   const name = path.basename(filepath);
   if (!sizeInfo[dir]) sizeInfo[dir] = {};

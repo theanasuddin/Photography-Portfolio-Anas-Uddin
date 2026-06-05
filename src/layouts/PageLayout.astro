@@ -9,6 +9,7 @@ import { getMenus } from "@/config/menus";
 const { currentLocale } = Astro;
 const i18n = await getI18n(currentLocale, "design");
 const links = getMenus(i18n("menus"), currentLocale);
+const sitePunct = (currentLocale === 'bn') ? '।' : '.';
 ---
 
 <BaseLayout {...Astro.props}>
@@ -19,5 +20,5 @@ const links = getMenus(i18n("menus"), currentLocale);
   >
     <slot />
   </div>
-  <Footer shows={i18n("footer")} links={links} />
+  <Footer shows={i18n("footer")} links={links} siteName={i18n("mate.title")} sitePunct={sitePunct} />
 </BaseLayout>
