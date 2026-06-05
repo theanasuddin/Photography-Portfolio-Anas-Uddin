@@ -18,11 +18,11 @@ const mates = {
   local: currentLocale,
   ogImage: getRelativeLocaleUrl(currentLocale, "/og-image/site-image.png"),
 };
-const works = (await getWorks()) as unknown as any[];
+const works = (await getWorks(currentLocale)) as unknown as any[];
 ---
 
 <Layout {...mates}>
-  <WorksGrid works={works} />
+  <WorksGrid works={works} locale={currentLocale} />
   <FloatBtns
     btns={[
       {

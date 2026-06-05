@@ -3,10 +3,10 @@ import App from "@/components/pages/detail.astro";
 import getWorks from "@/lib/getWorks.ts";
 
 export const getStaticPaths = async () => {
-  const works = await getWorks();
-  const paths = works.map((work) => {
+  const works = (await getWorks("en")) as any[];
+  const paths = works.map((work: any) => {
     return {
-      params: { work_id: work.id },
+      params: { work_id: work.data.slug },
       props: { work },
     };
   });

@@ -1,42 +1,46 @@
 ---
-import type { CollectionEntry } from "astro:content";
 import Image from "@/components/common/Image";
+import { getRelativeLocaleUrl } from "astro:i18n";
 
-type Props = {
-  works: CollectionEntry<"works">[];
+const { works, locale = "en" } = Astro.props as {
+  works: any[];
+  locale?: string;
 };
-
-const { works } = Astro.props;
 ---
 
 <div class="gap-1 columns-2 sm:columns-3 xl:columns-4">
   {
-    works.map((work) => (
-      <a
-        href={`/${work.id}`}
-        class="group block overflow-hidden mb-1 shadow-xl relative"
-      >
-        <Image
-          client:load
-          src={`${work.data.base}/main`}
-          imageInfo={{
-            width: work.data.members.main[0],
-            height: work.data.members.main[1],
-          }}
-          classNames={{
-            img: "transition duration-300 ease-in-out hover:scale-108",
-          }}
-        />
-        <span
-          class:list={[
-            "text-sm md:text-base text-white absolute overflow-hidden",
-            "py-1 px-2 z-10 w-full bg-black/40 backdrop-blur truncate",
-            "group-hover:animate-works-label-slide-in",
-          ]}
+    works.map((work) => {
+      const item = work as any;
+      const memberInfo =
+        item.data.members.main ?? Object.values(item.data.members)[0];
+      return (
+        <a
+          href={getRelativeLocaleUrl(locale, `/${item.data.slug}`)}
+          class="group block overflow-hidden mb-1 shadow-xl relative"
         >
-          {work.data.desc || work.id}
-        </span>
-      </a>
-    ))
+          <Image
+            client:load
+            src={`${item.data.base}/main`}
+            imageInfo={{
+              width: memberInfo[0],
+              height: memberInfo[1],
+            }}
+            classNames={{
+              img: "transition duration-300 ease-in-out hover:scale-108",
+            }}
+          />
+          <span
+            class:list={[
+              "text-sm md:text-base text-white absolute overflow-hidden",
+              "py-1 px-2 z-10 w-full bg-black/40 backdrop-blur truncate",
+              "group-hover:animate-works-label-slide-in",
+            ]}
+          >
+            {item.data.desc || item.data.slug}
+          </span>
+        </a>
+      );
+    })
   }
 </div>

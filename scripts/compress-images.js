@@ -27,9 +27,11 @@ function ensureDirExists(filePath) {
 function findAndMoveMd(dir) {
   const name = path.basename(dir);
   fs.readdirSync(dir)
-    .filter((file) => /\.md$/i.test(file))
+    .filter((file) => /^main(?:\.[a-z-]+)?\.md$/i.test(file))
     .forEach((file) => {
-      const fileName = file === "main.md" ? `${name}.md` : file;
+      const localeMatch = file.match(/^main(?:\.([a-z-]+))?\.md$/i);
+      const locale = localeMatch?.[1];
+      const fileName = locale ? `${name}.${locale}.md` : `${name}.md`;
       const filePath = path.join(dir, file);
       const targetPath = path.join(worksPageDir, fileName);
       fs.copyFileSync(filePath, targetPath);
@@ -174,7 +176,7 @@ async function main() {
       try {
         dirs.add(path.dirname(file));
         await compressImage(file, sizeInfo);
-      } catch (err) {}
+      } catch (err) { }
     }),
   );
   await Promise.all(tasks);
