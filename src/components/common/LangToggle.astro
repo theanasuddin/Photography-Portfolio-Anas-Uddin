@@ -1,0 +1,63 @@
+---
+import clsx from "clsx";
+
+const langMap = {
+  en: "English",
+  bn: "বাংলা",
+};
+
+const {
+  class: className,
+  langs = Object.keys(langMap),
+  locale = Astro.currentLocale ?? "en",
+  label = "Lang",
+} = Astro.props;
+
+const localePattern = new RegExp(`^/(${langs.join("|")})(?=/|$)`);
+const pathnameWithoutLocale =
+  Astro.url.pathname.replace(localePattern, "") || "/";
+
+const menus = langs.map((name) => ({
+  name,
+  label: langMap[name] ?? name,
+  disabled: locale === name,
+  path:
+    name === "en" ? pathnameWithoutLocale : `/${name}${pathnameWithoutLocale}`,
+}));
+---
+
+<div class:list={["dropdown dropdown-center", className]}>
+  <button
+    tabindex="0"
+    type="button"
+    role="button"
+    class="flex m-1"
+    aria-label={label}
+  >
+    <span
+      class="inline-flex min-h-5 min-w-5 items-center justify-center text-sm leading-none xl:min-h-6 xl:min-w-6 xl:text-base"
+    >
+      {label}
+    </span>
+  </button>
+  <ul
+    tabindex="0"
+    class="dropdown-content menu bg-[#333333] rounded-box z-1 w-max p-2 shadow-sm"
+  >
+    {
+      menus.map((it) => (
+        <a
+          href={it.disabled ? "javascript:null" : it.path}
+          class={clsx(
+            "p-2",
+            it.disabled
+              ? "text-[#ff2d2d]"
+              : "text-[#ffffff] hover:text-[#cccccc]",
+          )}
+        >
+          {it.label}
+        </a>
+      ))
+    }
+  </ul>
+</div>

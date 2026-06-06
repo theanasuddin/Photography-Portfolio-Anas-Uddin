@@ -1,12 +1,16 @@
 ---
 import { getRelativeLocaleUrl } from "astro:i18n";
-import HdudHeader from "@hdud/common/components/Header.astro";
+import HeaderMenus from "@hdud/common/components/HeaderMenus.astro";
 import siteConfig from "@/site.config";
 import { getI18n } from "@/i18n/index";
 import { getMenus } from "@/config/menus";
+import LangToggle from "@/components/common/LangToggle.astro";
+import ThemeToggle from "@/components/common/ThemeToggle.astro";
 
 const { currentLocale } = Astro;
 const i18n = await getI18n(currentLocale, "design");
+const menus = getMenus(i18n("menus"), currentLocale);
+const langLabel = i18n("langLabel");
 
 function getTargetUrl() {
   const lang = currentLocale || "en";
@@ -14,23 +18,44 @@ function getTargetUrl() {
 }
 ---
 
-<HdudHeader
-  menus={getMenus(i18n("menus"), currentLocale)}
-  class="max-w-none"
-  themes={siteConfig.themes}
-  langs={siteConfig.langs}
-  langLabel={i18n("langLabel")}
+<div
+  class:list={[
+    "navbar bg-base-100 min-h-auto shadow-[0_1px_0px_0px_rgba(0,0,0,0.1)] px-2 md:px-6 xl:px-10 py-2 max-w-none mx-auto justify-between",
+  ]}
 >
-  <div class="flex items-center gap-2">
-    <a href={getTargetUrl()} class="inline-block max-md:hidden xl:hidden">
+  <div class="navbar-start w-max flex-1">
+    <div class="dropdown">
+      <div tabindex="0" role="button" class="btn btn-ghost md:hidden">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-5 w-5"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M4 6h16M4 12h8m-8 6h16"></path>
+        </svg>
+      </div>
+      <ul
+        tabindex="0"
+        class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-max p-2 shadow"
+      >
+        <HeaderMenus menus={menus} pathname={Astro.url.pathname} type="small" />
+      </ul>
+    </div>
+    <a href={getTargetUrl()} class="flex items-center gap-2">
       <img
         src="/images/anas-uddin-logo.svg"
-        class="size-8 md:size-10 xl:size-12 h-auto"
+        class="size-8 md:size-10 xl:size-12 h-auto max-md:hidden xl:hidden"
       />
+      <span class="max-md:hidden text-md max-md:text-xl xl:text-xl"
+        >{i18n("brand")}</span
+      >
     </a>
-    <span class="max-md:hidden text-md max-md:text-xl xl:text-xl"
-      >{i18n("brand")}</span
-    >
   </div>
   <div class="flex items-center gap-2" slot="center">
     <a href={getTargetUrl()} class="md:hidden xl:block">
@@ -41,4 +66,25 @@ function getTargetUrl() {
     </a>
     <span class="md:hidden text-md xl:text-xl">{i18n("brand")}</span>
   </div>
-</HdudHeader>
+  <div class="flex navbar-end w-max flex-1">
+    <div class="hidden md:flex">
+      <ul class="menu menu-horizontal px-1 py-0">
+        <HeaderMenus menus={menus} pathname={Astro.url.pathname} />
+      </ul>
+    </div>
+    <div
+      class:list={[
+        "divider divider-horizontal max-md:hidden md:m-2 lg:m-3 w-1! lg:w-2!",
+      ]}
+    >
+    </div>
+    <div class="flex items-center gap-1 xl:gap-2">
+      <LangToggle
+        langs={siteConfig.langs}
+        locale={currentLocale}
+        label={langLabel}
+      />
+      <ThemeToggle themes={siteConfig.themes} />
+    </div>
+  </div>
+</div>
