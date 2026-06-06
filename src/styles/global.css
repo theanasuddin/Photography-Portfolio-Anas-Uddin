@@ -71,6 +71,11 @@
   font-family: var(--font-mono) !important;
 }
 
+.prose {
+  word-break: normal;
+  overflow-wrap: normal;
+}
+
 :root[data-theme="business"] footer a:hover,
 [data-theme="business"] footer a:hover {
   color: #ff2d2d !important;
