@@ -1,5 +1,5 @@
 ---
-import Svg404 from "@hdud/common/assets/images/404.svg";
+import Svg404 from "@/assets/images/404.svg";
 
 const { shows = {}, homeUrl, class: className } = Astro.props;
 ---
@@ -15,7 +15,7 @@ const { shows = {}, homeUrl, class: className } = Astro.props;
         <div
             class="flex mx-auto w-full justify-center aspect-video object-cover max-w-[800px] my-4 md:my-8 xl:my-16"
         >
-            <Svg404 class="h-full w-auto" />
+            <Svg404 class="h-full w-auto text-[#737373] dark:text-[#a0a0a0]" />
         </div>
         <div class="flex justify-center">
             <a
