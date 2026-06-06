@@ -37,72 +37,19 @@ const markup = (i18n) =>
       tw="flex items-end justify-start w-full p-10 text-xl border-b border-[#2bbc89]"
     >
       <svg
-        version="1.1"
         xmlns="http://www.w3.org/2000/svg"
-        xmlns:xlink="http://www.w3.org/1999/xlink"
-        x="0px"
-        y="0px"
-        width="80px"
-        viewBox="0 0 1000 1000"
-        enable-background="new 0 0 1000 1000"
-        xml:space="preserve"
+        width="96"
+        viewBox="0 0 15.84 9.04"
       >
         <path
-          fill="none"
-          stroke="#F39800"
-          stroke-width="30"
-          stroke-miterlimit="10"
-          d="M982.021,418.117
-		      c0,266.215-215.813,482.022-482.025,482.022c-266.212,0-482.021-215.807-482.021-482.022"
+          d="M5.79,10.48H2.57L2,12.32H0L3.32,3.4H5l3.34,8.92H6.41ZM3.06,9H5.29L4.17,5.65Z"
+          transform="translate(0 -3.4)"
+          fill="#ef3734"
         />
         <path
-          fill="none"
-          stroke="#F39800"
-          stroke-width="30"
-          stroke-miterlimit="10"
-          d="M345.601,745.744
-		      c-180.942,0-327.625-146.686-327.625-327.626c0-180.942,146.683-327.625,327.625-327.625"
-        />
-        <path
-          fill="none"
-          stroke="#F39800"
-          stroke-width="30"
-          stroke-miterlimit="10"
-          d="M654.396,90.493
-		      c180.942,0,327.625,146.682,327.625,327.624S835.339,745.742,654.396,745.742"
-        />
-
-        <line
-          fill="none"
-          stroke="#F39800"
-          stroke-width="30"
-          stroke-miterlimit="10"
-          x1="345.601"
-          y1="436.191"
-          x2="654.396"
-          y2="436.191"
-        />
-
-        <line
-          fill="none"
-          stroke="#F39800"
-          stroke-width="30"
-          stroke-miterlimit="10"
-          x1="669.346"
-          y1="749.727"
-          x2="669.346"
-          y2="77.293"
-        />
-
-        <line
-          fill="none"
-          stroke="#F39800"
-          stroke-width="30"
-          stroke-miterlimit="10"
-          x1="330.487"
-          y1="754.469"
-          x2="330.487"
-          y2="82.033"
+          d="M15.84,3.4V9.27a3,3,0,0,1-.92,2.32,3.51,3.51,0,0,1-2.5.85,3.57,3.57,0,0,1-2.48-.83A3,3,0,0,1,9,9.34V3.4h1.84V9.29a1.67,1.67,0,0,0,.42,1.27,1.6,1.6,0,0,0,1.16.4c1,0,1.56-.54,1.58-1.63V3.4Z"
+          transform="translate(0 -3.4)"
+          fill="#ef3734"
         />
       </svg>
       <p tw="ml-3 font-semibold">${i18n("mate.title")}</p>
