@@ -40,7 +40,7 @@ export default defineConfig({
       tailwindcss(),
       visualizer({
         emitFile: true,
-        filename: "package_alalyze.html",
+        filename: "package_analyze.html",
       }),
       rawFonts([".ttf", ".woff"]),
     ],
@@ -66,7 +66,7 @@ export default defineConfig({
     vtbot(),
     webmanifest({
       name: siteConfig.title,
-      short_name: "HDUD",
+      short_name: "Anas Photo",
       description: siteConfig.description,
       lang: siteConfig.lang,
       icon: "public/favicon/favicon.svg",
@@ -94,12 +94,6 @@ export default defineConfig({
     }),
     alpinejs(),
   ],
-  redirects: {
-    "/blog": "/blog/home",
-    "/blog/index": "/blog/home",
-    "/blog/tags": "/blog/tags/Python",
-    "/blog/posts": "/blog/posts/1",
-  },
   markdown: {
     remarkPlugins: [remarkReadingTime],
     rehypePlugins: [

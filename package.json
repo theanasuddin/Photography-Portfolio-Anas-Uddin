@@ -9,8 +9,7 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "compress-images": "node scripts/compress-images.js",
-    "auto-deploy-website": "npm run build && python scripts/auto-deploy-website.py"
+    "compress-images": "node scripts/compress-images.js"
   },
   "keywords": [
     "photography",
