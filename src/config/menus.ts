@@ -1,7 +1,7 @@
 import { siteConfig } from "@/site.config";
 export const getMenus = (textMap, locale) => {
   const target = locale === "en" ? "" : `/${locale}`;
-  const hasAnimate = locale === "en";
+  const hasAnimate = true;
   const getHref = (str) => `${target}${str}`;
   const checkActive = (restr) => (path) =>
     new RegExp(`^${target}${restr}`).test(path);
