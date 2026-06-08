@@ -69,7 +69,7 @@ export default defineConfig({
       short_name: "Anas Photo",
       description: siteConfig.description,
       lang: siteConfig.lang,
-      icon: "public/favicon/favicon.svg",
+      icon: "public/favicon/favicon-512x512.png",
       icons: [
         {
           src: "public/favicon/favicon-180x180.png",
